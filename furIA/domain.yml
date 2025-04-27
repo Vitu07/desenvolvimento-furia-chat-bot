@@ -1,0 +1,57 @@
+version: "3.1"
+
+intents:
+  - greet
+  - goodbye
+  - players_info
+  - player_specific
+  - titles
+  - next_match
+  - out_of_scope
+
+entities:
+  - player
+
+slots:
+  player:
+    type: text
+    influence_conversation: false
+    mappings:
+      - type: from_entity
+        entity: player
+
+responses:
+  utter_greet:
+    - text: "Fala aí Furioso(a)! Manda tua dúvida sobre a FURIA."
+
+  utter_goodbye:
+    - text: "Tamo junto! Até a próxima."
+
+  utter_players_info:
+    - text: |
+        Elenco do time de CS2 da FURIA:
+        - yuurih
+        - KSCERATO
+        - FalleN
+        - molodoy
+        - YEKINDAR (Stand-in)
+        Técnico: sidde
+
+  utter_titles:
+    - text: |
+        A FURIA é um dos times mais respeitados do cenário, e já ganhou vários campeonatos. Entre os maiores:
+        - Vencedor do *IEM New York 2020 North America*
+        - Vencedor do *ESL Pro League Season 12 North America*
+        - Vencedor do *Blast Premier Spring Finals 2020*
+        A FURIA sempre arranca aplausos pelos seus resultados em Majors e campeonatos internacionais.
+
+  utter_default:
+    - text: "Desculpe, não entendi o que você quis dizer. Pode tentar de outra forma?"
+
+actions:
+  - action_next_match
+  - action_player_specific
+
+session_config:
+  session_expiration_time: 60
+  carry_over_slots_to_new_session: true

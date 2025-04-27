@@ -1,0 +1,37 @@
+version: "3.1"
+
+rules:
+  - rule: Sempre cumprimentar o usuário
+    steps:
+      - intent: greet
+      - action: utter_greet
+
+  - rule: Sempre se despedir do usuário
+    steps:
+      - intent: goodbye
+      - action: utter_goodbye
+
+  - rule: Fornecer informações sobre os jogadores
+    steps:
+      - intent: players_info
+      - action: utter_players_info
+
+  - rule: Fornecer detalhes sobre um jogador específico
+    steps:
+      - intent: player_specific
+      - action: action_player_specific
+
+  - rule: Fornecer informações sobre os títulos
+    steps:
+      - intent: titles
+      - action: utter_titles
+
+  - rule: Fornecer detalhes sobre o próximo jogo
+    steps:
+      - intent: next_match
+      - action: action_next_match
+
+  - rule: Fallback (quando não entende)
+    steps:
+      - intent: out_of_scope
+      - action: utter_default

@@ -1,0 +1,26 @@
+version: "3.1"
+
+stories:
+  - story: Greet and ask for players
+    steps:
+      - intent: greet
+      - action: utter_greet
+      - intent: players_info
+      - action: utter_players_info
+
+  - story: Ask about a specific player
+    steps:
+      - intent: player_specific
+        entities:
+          - player: "YEKINDAR"
+      - action: action_player_specific
+
+  - story: Ask about titles
+    steps:
+      - intent: titles
+      - action: utter_titles
+
+  - story: Ask about next match
+    steps:
+      - intent: next_match
+      - action: action_next_match

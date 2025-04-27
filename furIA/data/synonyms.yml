@@ -1,0 +1,22 @@
+version: "3.0"
+synonyms:
+  - value: "fallen"
+    synonyms:
+      - "professor"
+      - "gabriel toledo"
+  - value: "yuurih"
+    synonyms:
+      - "yuri"
+      - "yurihh"
+      - "yuriii"
+  - value: "kscerato"
+    synonyms:
+      - "kcerato"
+      - "kscerato"
+  - value: "molodoy"
+    synonyms:
+      - "kayke"
+      - "molodoy"
+  - value: "yekindar"
+    synonyms:
+      - "yekindar"

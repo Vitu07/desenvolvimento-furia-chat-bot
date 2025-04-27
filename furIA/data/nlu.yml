@@ -1,0 +1,86 @@
+version: "3.1"
+
+nlu:
+  - intent: greet
+    examples: |
+
+      - Oi
+      - Olá
+      - ola
+      - e aí
+      - eai
+      - salve
+      - Fala
+      - Bom dia
+      - Boa tarde
+      - Boa noite
+      - Eae
+      - Eai
+      - E aí
+      - Opa
+      - Olá
+      - Fala aí
+      - Tudo certo?
+      - Salve
+      - beleza?
+      - tudo bem?
+
+  - intent: goodbye
+    examples: |
+      - Valeu
+      - Até logo
+      - Adeus
+      - Até mais
+      - Falou
+      - Tchau
+      - Até a próxima
+      - Fui
+
+  - intent: players_info
+    examples: |
+      - Quem joga na FURIA?
+      - Me fala o elenco da FURIA
+      - Quais jogadores estão no time da FURIA?
+      - Quem são os jogadores da FURIA?
+      - Elenco atual da FURIA
+      - Time de CS2 da FURIA
+
+  - intent: player_specific
+    examples: |
+      - Me fale sobre o [FalleN](player)
+      - Quero saber mais do [yuurih](player)
+      - Quem é o [KSCERATO](player)?
+      - Informações sobre o [molodoy](player), por favor
+      - Como está o [YEKINDAR](player)?
+      - O que você pode me dizer do [professor](player)?
+      - Conta mais sobre o [gabriel toledo](player)
+
+  - intent: titles
+    examples: |
+      - A FURIA já ganhou algum campeonato?
+      - Quais títulos a FURIA tem?
+      - A FURIA venceu quais campeonatos?
+      - Que títulos importantes a FURIA conquistou?
+      - A FURIA tem título internacional?
+
+  - intent: next_match
+    examples: |
+      - Quando é o próximo jogo da FURIA?
+      - Qual é o próximo jogo da FURIA?
+      - A FURIA vai jogar quando?
+      - Próxima partida da FURIA
+      - Próximo jogo do time da FURIA
+      - Data do próximo jogo da FURIA
+
+  - intent: out_of_scope
+    examples: |
+      - asdadas
+      - qweqwe
+      - não sei
+      - ahduashdu
+      - nada a ver
+      - o que?
+      - isso não faz sentido
+      - dkugefacbnklpo
+      - oclecabyafu9
+      - 91r1n
