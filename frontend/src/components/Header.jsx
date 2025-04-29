@@ -3,10 +3,13 @@ import styled from "styled-components";
 
 const HeaderContainer = styled.header`
   width: 100%;
-  padding: 20px 40px;
-  background-color: #000;
+  padding: 15px 30px;
+  background-color: transparent;
   display: flex;
   align-items: center;
+  justify-content: center;
+  backdrop-filter: blur(8px);
+  background: rgba(0, 0, 0, 0.7);
 `;
 
 const Logo = styled.img`

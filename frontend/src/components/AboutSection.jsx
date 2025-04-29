@@ -2,21 +2,26 @@ import React from "react";
 import styled from "styled-components";
 
 const About = styled.section`
-  padding: 80px 20px;
+  padding: 100px 20px;
   text-align: center;
-  background-color: #f9f9f9;
+  background: #fafafa;
+  border-top-left-radius: 40px;
+  border-top-right-radius: 40px;
+  margin-top: 50px;
 `;
 
 const Title = styled.h2`
-  font-size: 2rem;
+  font-size: 2.5rem;
   margin-bottom: 20px;
+  font-weight: 700;
 `;
 
 const Text = styled.p`
   font-size: 1.2rem;
   max-width: 800px;
   margin: 0 auto;
-  color: #333;
+  color: #555;
+  line-height: 1.6;
 `;
 
 function AboutSection() {

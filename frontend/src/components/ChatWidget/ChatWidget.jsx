@@ -43,9 +43,9 @@ const ChatWidget = () => {
   const [inputMessage, setInputMessage] = useState("");
   const [loading, setLoading] = useState(false);
   const [chatVisible, setChatVisible] = useState(false);
-  const [dynamicHeight, setDynamicHeight] = useState(100); // altura inicial pequena
+  const [dynamicHeight, setDynamicHeight] = useState(100);
 
-  const maxHeight = 500; // Limite máximo para altura do chat
+  const maxHeight = 500;
 
   const sendMessage = async (message) => {
     setLoading(true);
@@ -84,10 +84,9 @@ const ChatWidget = () => {
     setInputMessage("");
   };
 
-  // Cresce o chat conforme novas mensagens chegam
   useEffect(() => {
-    const baseHeight = 100; // Altura inicial
-    const messageHeight = 70; // Altura aproximada de cada mensagem
+    const baseHeight = 100; 
+    const messageHeight = 70;
     const newHeight = baseHeight + messages.length * messageHeight;
 
     if (newHeight < maxHeight) {

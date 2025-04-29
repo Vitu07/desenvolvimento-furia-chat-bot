@@ -2,7 +2,6 @@ import ReactMarkdown from "react-markdown";
 import React, { useEffect, useRef } from "react";
 import styled from "styled-components";
 
-// Container para a lista de mensagens
 const List = styled.div`
   flex: 1;
   padding: 10px;
@@ -11,7 +10,6 @@ const List = styled.div`
   flex-direction: column;
 `;
 
-// Estilo para as mensagens, diferenciando entre bot e usuário
 const Message = styled.div`
   max-width: 60%;
   margin: 10px 0;
@@ -28,7 +26,6 @@ const Message = styled.div`
 function MessageList({ messages }) {
   const messagesEndRef = useRef(null);
 
-  // Faz a rolagem automática quando a lista de mensagens é atualizada
   useEffect(() => {
     if (messagesEndRef.current) {
       messagesEndRef.current.scrollIntoView({ behavior: "smooth" });
