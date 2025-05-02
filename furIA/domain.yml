@@ -13,6 +13,7 @@ intents:
   - next_match
   - out_of_scope
   - next_tournaments
+  - nlu_fallback
 
 entities:
   - player
@@ -35,7 +36,7 @@ slots:
 
 responses:
   utter_greet:
-    - text: "Olá! Sou o assistente virtual e torcedor da FURIA. No que posso ajudar?"
+    - text: "Olá! Eu sou o Furico-BOT, mascote e torcedor da FURIA. No que posso ajudar?"
     - text: "Salvee! Pronto para trocar um ideia sobre a FURIA?"
     - text: "E aí! Bora conversar sobre CS?"
     - text: "Fala Furioso! Oque você quer saber sobre o time de CS da FURIA?"
@@ -43,8 +44,8 @@ responses:
 
   utter_goodbye:
     - text: "Até logo! Acompanhe a FURIA nas redes sociais."
-    - text: "Tchau! Volte sempre para mais informações sobre o time."
-    - text: "Até mais! Continue acompanhando a FURIA CS."
+    - text: "Falouuu! Volte sempre que quiser trocar uma ideia."
+    - text: "Até mais! Continue acompanhando a FURIA nas redes."
     - text: "Valeu! Fique de olho nos próximos jogos da FURIA."
 
   utter_players_info:
@@ -67,7 +68,6 @@ responses:
   utter_titles:
     - text: |
         Principais títulos da FURIA CS:
-
         • ESL Pro League Season 12: North America (2020)  
         • IEM New York 2020 North America  
         • DreamHack Masters Spring 2020 NA  
@@ -75,7 +75,6 @@ responses:
 
     - text: |
         Conquistas históricas:
-
         • ESL Pro League S12 NA (2020)  
         • IEM New York NA (2020)  
         2x Campeã DreamHack (Spring/Summer 2020)  
@@ -83,14 +82,12 @@ responses:
 
     - text: |
         Feitos da FURIA:
-
         - 4 títulos S-tier em 2020  
         - Melhor ranking: #3 mundial (HLTV)
 
   utter_next_tournaments:
     - text: |
         Próximos campeonatos que a FURIA irá participar:
-
         🏆 **PGL Astana 2025**  
         📅 10 de Maio - 18 de Maio
 
@@ -114,13 +111,11 @@ responses:
   utter_social_media:
     - text: |
         📲 Redes oficiais da FURIA:
-
         • Twitter: @FURIA (oficial)  
         • Instagram: @furiagg  
         • YouTube: FURIAggCS (conteúdo de CS)  
         • TikTok: @furiagg e @furia  
         • Site oficial: www.furia.gg
-
         Acompanhe para não perder nada!
 
     - text: |
@@ -151,12 +146,16 @@ responses:
         🎵 VOU TORCER PRA FURIA SER CAMPEÃO,  
         LA TRIBONEIRA, MEU CALDEIRÃOOOOOOO! 🎶  
 
-        Essa daí me deu até um saudade do major do RIO 😂🖤
+        Essa daí me deu até um saudade do major do RIO 😄🖤
+
+  utter_out_of_scope:
+    - text: "Ainda não consigo falar sobre isso. Tente perguntar algo relacionado à FURIA CS. 🖤"
+    - text: "Hmm, esse assunto não faz parte do meu repertório. Que tal saber algo sobre o time da FURIA?"
+    - text: "Não sei sobre isso, mas posso te contar tudo sobre a FURIA CS!"
 
   utter_default:
     - text: "Não consegui entender. Quer tentar perguntar de outra forma?"
     - text: "Ops! Não captei isso. Pode reformular?"
-    - text: "Ainda não sei responder isso. Que tal perguntar sobre o elenco, próximos jogos ou títulos da FURIA?"
     - text: "Desculpe, não entendi. Tente algo como 'Quem joga na FURIA?' ou 'Quando é o próximo jogo?'"
     - text: "Hmm, não consegui processar. Quer saber algo sobre os jogadores, resultados ou campeonatos?"
     - text: "Vish, não peguei essa. Me pergunte sobre o time de CS da FURIA!"

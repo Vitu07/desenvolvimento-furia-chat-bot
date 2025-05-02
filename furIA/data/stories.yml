@@ -22,13 +22,6 @@ stories:
           - player: "chelo"
       - action: utter_ask_player_status
 
-  - story: Ask about the status of skullz
-    steps:
-      - intent: ask_player_status
-        entities:
-          - player: "skullz"
-      - action: utter_ask_player_status
-
   - story: Ask about titles
     steps:
       - intent: titles
@@ -51,9 +44,10 @@ stories:
       - intent: next_tournaments
       - action: utter_next_tournaments
 
-  - story: Ask about social media directly
+  - story: parting flow
     steps:
-      - intent: ask_social_media
+      - intent: goodbye
+      - action: utter_goodbye
       - action: utter_social_media
 
   - story: Greet and ask about social media
@@ -79,3 +73,8 @@ stories:
     steps:
       - intent: next_match
       - action: action_next_match
+
+  - story: Fallback intent (unknown query)
+    steps:
+      - intent: fallback
+      - action: utter_fallback

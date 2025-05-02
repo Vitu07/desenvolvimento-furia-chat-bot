@@ -6,12 +6,13 @@ rules:
       - intent: greet
       - action: utter_greet
 
-  - rule: Sempre se despedir do usuário
+  - rule: Despedida completa
     steps:
       - intent: goodbye
       - action: utter_goodbye
+      - action: utter_social_media
 
-  - rule: Fornecer informações sobre os jogadores
+  - rule: Informar os jogadores do time
     steps:
       - intent: players_info
       - action: utter_players_info
@@ -21,7 +22,7 @@ rules:
       - intent: player_specific
       - action: action_player_specific
 
-  - rule: Responder status de jogadores com entidade
+  - rule: Responder status de jogadores inativos
     steps:
       - intent: ask_player_status
       - action: utter_ask_player_status
@@ -56,7 +57,12 @@ rules:
       - intent: next_match
       - action: action_next_match
 
-  - rule: Fallback (quando não entende)
+  - rule: Mensagem irreconhecível (fora do escopo)
     steps:
       - intent: out_of_scope
+      - action: utter_out_of_scope
+
+  - rule: Fallback para baixa confiança do modelo
+    steps:
+      - intent: nlu_fallback
       - action: utter_default

@@ -26,7 +26,7 @@ class PlayerInfo:
                 "idade": "33 anos",
                 "nacionalidade": "Brasileiro",
                 "titulos": ["2 Majors (Columbus 2016, Cologne 2016)", "Diversos títulos internacionais"],
-                "historia": "Lenda do CS:GO, conhecido como 'Professor'.",
+                "historia": "Lenda do CS:GO, conhecido como **Professor**.",
             },
             "molodoy": {
                 "nome_real": "Kayke Bertolucci",
@@ -81,5 +81,4 @@ class PlayerInfo:
             if input_normalizado == chave.lower():
                 return chave
             
-
         return None
