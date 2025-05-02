@@ -2,9 +2,17 @@
   box-sizing: border-box;
 }
 
-body {
+html,
+body,
+#root {
+  height: 100%;
   margin: 0;
   padding: 0;
+  display: flex;
+  flex-direction: column;
+}
+
+body {
   overflow-x: hidden;
   font-family: "Poppins", sans-serif;
   background: linear-gradient(to bottom, #1c1c1c, #2f2f2f, #f9f9f9);
@@ -13,4 +21,8 @@ body {
 #root {
   width: 100%;
   overflow-x: hidden;
+}
+
+main {
+  flex: 1;
 }

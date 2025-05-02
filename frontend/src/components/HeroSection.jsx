@@ -1,11 +1,15 @@
 import React, { useState } from "react";
 import styled from "styled-components";
+import MessageList from "./ChatWidget/MessageList";
+import MessageInput from "./ChatWidget/MessageInput";
+import TypingIndicator from "./ChatWidget/TypingIndicator";
+import botAvatar from "../assets/img/mascote_furia.jpg";
 
 const Hero = styled.section`
   background: none;
   color: white;
   text-align: center;
-  padding: 120px 20px 0;
+  padding: 120px 20px 80px;
 `;
 
 const Title = styled.h1`
@@ -28,9 +32,8 @@ const CTAButton = styled.button`
   font-weight: bold;
   border: none;
   border-radius: 30px;
-  text-decoration: none;
   transition: 0.3s;
-  display: inline-block;
+  cursor: pointer;
 
   &:hover {
     background-color: #0056b3;
@@ -38,62 +41,148 @@ const CTAButton = styled.button`
   }
 `;
 
-const AboutSection = styled.section`
-  padding: 100px 20px;
-  text-align: center;
-  background: #fafafa;
-  border-top-left-radius: 40px;
-  border-top-right-radius: 40px;
-  margin-top: 50px;
-  transform: translateY(100px);
+const ChatContainer = styled.div`
+  margin: 40px auto 0;
+  max-width: 500px;
+  width: 100%;
+  background-color: #121212;
+  border-radius: 20px;
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.4);
+  overflow: hidden;
   opacity: 0;
-  transition: transform 0.5s ease, opacity 0.5s ease;
+  transform: translateY(50px);
+  transition: opacity 0.5s ease, transform 0.5s ease;
 
   &.show {
-    transform: translateY(0);
     opacity: 1;
+    transform: translateY(0);
   }
 `;
 
-const TitleAbout = styled.h2`
-  font-size: 2.5rem;
-  margin-bottom: 20px;
-  font-weight: 700;
-  color: #363636;
+const ChatHeader = styled.div`
+  display: flex;
+  align-items: center;
+  background-color: #222;
+  color: #fff;
+  padding: 12px 20px;
+  border-bottom: 1px solid #444;
 `;
 
-const Text = styled.p`
-  font-size: 1.2rem;
-  max-width: 800px;
-  margin: 0 auto;
-  color: #555;
-  line-height: 1.6;
+const BotAvatar = styled.img`
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  margin-right: 12px;
+`;
+
+const BotInfo = styled.div`
+  display: flex;
+  flex-direction: column;
+`;
+
+const BotName = styled.span`
+  font-weight: bold;
+`;
+
+const BotStatus = styled.span`
+  font-size: 0.85rem;
+  color: #4caf50;
+`;
+
+const MessagesWrapper = styled.div`
+  max-height: 300px;
+  overflow-y: auto;
+  padding: 20px;
+  display: flex;
+  flex-direction: column;
+
+  &::-webkit-scrollbar {
+    width: 8px;
+  }
+
+  &::-webkit-scrollbar-track {
+    background: transparent;
+  }
+
+  &::-webkit-scrollbar-thumb {
+    background-color: #444;
+    border-radius: 10px;
+    border: 2px solid #1e1e1e;
+  }
+
+  scrollbar-color: #444 #1e1e1e;
+  scrollbar-width: thin;
 `;
 
 function HeroSection() {
-  const [showAbout, setShowAbout] = useState(false);
+  const [chatVisible, setChatVisible] = useState(false);
+  const [messages, setMessages] = useState([]);
+  const [loading, setLoading] = useState(false);
 
-  const handleButtonClick = () => {
-    setShowAbout(!showAbout);
+  const sendMessage = async (message) => {
+    setLoading(true);
+    try {
+      const response = await fetch(
+        "http://localhost:5005/webhooks/rest/webhook",
+        {
+          method: "POST",
+          headers: {
+            "Content-Type": "application/json",
+          },
+          body: JSON.stringify({
+            sender: "user",
+            message: message,
+          }),
+        }
+      );
+
+      const data = await response.json();
+
+      const botMessages = [
+        {
+          text: data.map((msg) => msg.text).join("\n\n"),
+          sender: "bot",
+        },
+      ];
+
+      setMessages((prevMessages) => [
+        ...prevMessages,
+        { text: message, sender: "user" },
+        ...botMessages,
+      ]);
+    } catch (error) {
+      console.error("Erro ao enviar mensagem:", error);
+    } finally {
+      setLoading(false);
+    }
+  };
+
+  const handleSend = (message) => {
+    sendMessage(message);
   };
 
   return (
     <Hero>
       <Title>Bem-vindo ao Chat do Time de CS da FURIA</Title>
       <Subtitle>Converse com a gente e tire suas dúvidas!</Subtitle>
-      <CTAButton onClick={handleButtonClick}>
-        {showAbout ? "Fechar Sobre o Projeto" : "Sobre o Projeto"}
-      </CTAButton>
+      <CTAButton onClick={() => setChatVisible(true)}>Comece Agora</CTAButton>
 
-      <AboutSection className={showAbout ? "show" : ""}>
-        <TitleAbout>Sobre o Projeto</TitleAbout>
-        <Text>
-          Esta plataforma foi criada para facilitar a interação entre os fãs e o
-          time de CS da FURIA. Nosso chatbot é treinado para responder perguntas
-          frequentes sobre o time, jogadores, competições e muito mais.
-          Experimente o chat e descubra todas as novidades!
-        </Text>
-      </AboutSection>
+      <ChatContainer className={chatVisible ? "show" : ""}>
+        <ChatHeader>
+          <BotAvatar src={botAvatar} alt="Bot Avatar" />
+          <BotInfo>
+            <BotName>FURIA Bot</BotName>
+            <BotStatus>{loading ? "● Digitando..." : "● Online"}</BotStatus>
+          </BotInfo>
+        </ChatHeader>
+
+        <MessagesWrapper>
+          <MessageList messages={messages} />
+          {loading && <TypingIndicator />}
+        </MessagesWrapper>
+
+        <MessageInput onSend={handleSend} />
+      </ChatContainer>
     </Hero>
   );
 }

@@ -3,7 +3,6 @@ version: "3.1"
 nlu:
   - intent: greet
     examples: |
-
       - Oi
       - Olá
       - ola
@@ -24,10 +23,10 @@ nlu:
       - Salve
       - beleza?
       - tudo bem?
+      - fala ai
 
   - intent: goodbye
     examples: |
-      - Valeu
       - Até logo
       - Adeus
       - Até mais
@@ -35,6 +34,18 @@ nlu:
       - Tchau
       - Até a próxima
       - Fui
+
+  - intent: thank
+    examples: |
+      - Valeu
+      - Obrigado
+      - Agradeço
+      - Obrigada
+      - Tmj
+      - Vlw
+      - Brigado
+      - Tamo Junto
+      - É nois
 
   - intent: players_info
     examples: |
@@ -49,11 +60,38 @@ nlu:
     examples: |
       - Me fale sobre o [FalleN](player)
       - Quero saber mais do [yuurih](player)
-      - Quem é o [KSCERATO](player)?
-      - Informações sobre o [molodoy](player), por favor
-      - Como está o [YEKINDAR](player)?
-      - O que você pode me dizer do [professor](player)?
-      - Conta mais sobre o [gabriel toledo](player)
+      - Informações sobre o [yuri](player)
+      - Quem é o [yurihh](player)?
+      - Como está o [yuriii](player)?
+      - Detalhes sobre [yuri santos](player)
+      - Me conta sobre o [KSCERATO](player)
+      - Quem é [kaike cerato](player)?
+      - Fala do [kcerato](player)
+      - Dados do [kayke](player)
+      - Info sobre [molodoy](player)
+      - Perfil do [bertolucci](player)
+      - Biografia do [YEKINDAR](player)
+      - Estatísticas do [mareks](player)
+      - História do [galinskis](player)
+      - Carreira do [professor](player)
+      - Títulos do [gabriel toledo](player)
+      - Trajetória do [sidde](player)
+      - Quem é [sidney](player)?
+      - Qual é o [coach](player)
+
+  - intent: ask_player_status
+    examples: |
+      - o que aconteceu com o [chelo](bench_player)?
+      - o que houve com o [skullz](bench_player)?
+      - o [chelo](bench_player) foi para o banco?
+      - o [skullz](bench_player) saiu do time?
+      - [chelo](bench_player) está jogando ainda?
+      - o [skullz](bench_player) ainda está na FURIA?
+      - [skullz](bench_player) foi substituído por quem?
+      - [chelo](bench_player) ainda faz parte da lineup?
+      - onde está o [skullz](bench_player) agora?
+      - qual é a situação do [chelo](bench_player)?
+      - [skullz](bench_player) está na reserva?
 
   - intent: titles
     examples: |
@@ -63,14 +101,75 @@ nlu:
       - Que títulos importantes a FURIA conquistou?
       - A FURIA tem título internacional?
 
+  - intent: next_tournaments
+    examples: |
+      - Quais os próximos campeonatos da FURIA?
+      - Em que torneios a FURIA vai jogar?
+      - Quais os próximos eventos da FURIA?
+      - Quais campeonatos estão por vir?
+      - Lista de torneios futuros
+      - Próximos campeonatos do time
+      - Quando a FURIA joga no próximo torneio?
+      - Quais os próximos 3 campeonatos?
+      - titulos da furia
+      - Oque a furia já ganhou?
+
+  - intent: ask_live_match
+    examples: |
+      - Tem jogo da FURIA acontecendo agora?
+      - A FURIA está jogando agora?
+      - Está rolando partida da FURIA?
+      - Tem partida ao vivo da FURIA?
+      - Como está o jogo da FURIA?
+      - Qual o placar do jogo atual da FURIA?
+      - Está transmitindo o jogo da FURIA agora?
+
   - intent: next_match
     examples: |
       - Quando é o próximo jogo da FURIA?
       - Qual é o próximo jogo da FURIA?
+      - Tem jogo hoje?
+      - Quando a furia joga
       - A FURIA vai jogar quando?
+      - Quando jogam de novo?
+      - Data do próximo jogo
       - Próxima partida da FURIA
+      - Contra quem é o próximo jogo?
       - Próximo jogo do time da FURIA
-      - Data do próximo jogo da FURIA
+      - Próximo adversário
+
+  - intent: sing_song
+    examples: |
+      - canta uma música
+      - canta pra gente
+      - solta o hino
+      - qual é o seu grito de guerra?
+      - manda um som
+      - canta algo
+      - solta o som
+      - canta o hino da FURIA
+
+  - intent: ask_social_media
+    examples: |
+      - Quais as redes sociais?
+      - Onde acompanhar a FURIA?
+      - Link do Instagram
+      - Canal no YouTube
+      - Tem Twitter oficial?
+      - Quero seguir a FURIA
+      - Onde vocês postam atualizações?
+      - Quais os canais oficiais?
+      - Me passa os links sociais
+      - Como acompanhar o time?
+
+  - intent: ask_tournament
+    examples: |
+      - Qual campeonato estão jogando?
+      - Em que torneio estão agora?
+      - Tão jogando o que atualmente?
+      - Qual o torneio atual?
+      - Isso é do major?
+      - É um campeonato importante?
 
   - intent: out_of_scope
     examples: |

@@ -2,9 +2,10 @@ import React from "react";
 import styled from "styled-components";
 
 const Typing = styled.div`
-  padding: 5px 10px;
-  font-size: 12px;
-  color: gray;
+  padding: 8px 20px;
+  font-size: 13px;
+  color: #bbb;
+  text-align: left;
 `;
 
 function TypingIndicator() {

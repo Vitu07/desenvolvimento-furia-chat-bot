@@ -21,10 +21,35 @@ rules:
       - intent: player_specific
       - action: action_player_specific
 
+  - rule: Responder status de jogadores com entidade
+    steps:
+      - intent: ask_player_status
+      - action: utter_ask_player_status
+
   - rule: Fornecer informações sobre os títulos
     steps:
       - intent: titles
       - action: utter_titles
+
+  - rule: Responder sobre partida ao vivo
+    steps:
+      - intent: ask_live_match
+      - action: action_live_match
+
+  - rule: Fornecer informações sobre próximos campeonatos
+    steps:
+      - intent: next_tournaments
+      - action: utter_next_tournaments
+
+  - rule: Responder sobre redes sociais
+    steps:
+      - intent: ask_social_media
+      - action: utter_social_media
+
+  - rule: Cantar música quando pedido
+    steps:
+      - intent: sing_song
+      - action: utter_sing_song
 
   - rule: Fornecer detalhes sobre o próximo jogo
     steps:
