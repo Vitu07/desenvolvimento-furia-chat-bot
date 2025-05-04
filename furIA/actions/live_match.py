@@ -4,7 +4,7 @@ import pytz
 
 def get_live_furia_match():
     API_TOKEN = 'xqFHFnKz8ur7msHK80sEcSsD7eISp4Atx3qQ0XcZJxnmZfx_Hx4'
-    FURIA_ID = 3240 #ID da MOUZ(teste)
+    FURIA_ID = 3240 #ID da MOUZ (teste)
     url = f'https://api.pandascore.co/csgo/matches/running?token={API_TOKEN}'
 
     try:
