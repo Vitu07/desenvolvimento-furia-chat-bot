@@ -37,6 +37,8 @@ frontend/
 
 ## 📋 Requisitos
 
+### Python **3.8.1**
+
 ### Backend (Rasa)
 
 Veja todos os requisitos em `requirements.txt`. Principais pacotes:
