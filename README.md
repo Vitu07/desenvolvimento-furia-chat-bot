@@ -1,4 +1,4 @@
-#FURIA Chatbot
+# FURIA Chatbot
 
 Um assistente virtual feito com Rasa e React para responder perguntas relacionadas ao time de CS:GO da FURIA.
 
